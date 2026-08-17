@@ -17,5 +17,6 @@ kernel_headers=$(ls /usr/src | grep "linux-headers-" | grep $grep_args | awk '{ 
 
 
 kernel_name=${kernel_headers//linux-headers-/}
+kernel_name=$(echo "$kernel_name" | sed 's/-cloud-/-/;s/-metal-/-/')
 
 echo "$kernel_name"
